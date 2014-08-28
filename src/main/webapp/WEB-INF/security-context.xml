@@ -7,15 +7,6 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-	<!-- <security:http> <security:x509 subject-principal-regex="CN=(.*?)," 
-		/> <security:intercept-url pattern="/*" access="ROLE_CLIENT" requires-channel="https" 
-		/> </security:http> <security:authentication-manager alias="authenticationManager"> 
-		<security:authentication-provider> <security:user-service> <security:user 
-		name="car" authorities="ROLE_CLIENT" /> </security:user-service> </security:authentication-provider> 
-		</security:authentication-manager> -->
-
-
-
 	<security:authentication-manager alias="authenticationManager">
 	<security:authentication-provider ref="preauthAuthProvider" ></security:authentication-provider>
 	
@@ -63,11 +54,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 	<bean id="http403"
 		class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
 
-
-
-	<!-- <bean id="delegating" class="org.springframework.security.web.authentication.DelegatingAuthenticationEntryPoint" 
-		/> -->
-	<!-- neznam so prava -->
+	<!-- Setting preAuthenticated user details service -->
 
 	<bean id="preauthAuthProvider"
 		class="org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider">
